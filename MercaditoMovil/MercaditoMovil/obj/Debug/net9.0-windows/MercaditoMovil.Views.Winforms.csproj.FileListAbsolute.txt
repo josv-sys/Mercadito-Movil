@@ -23,3 +23,30 @@ C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMov
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Domain.pdb
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.AssemblyReference.cache
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\Mercadit.29E53745.Up2Date
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.exe
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.deps.json
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.runtimeconfig.json
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.pdb
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Application.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Domain.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Shared.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Application.pdb
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Shared.pdb
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Domain.pdb
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.AssemblyReference.cache
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Form1.resources
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.GenerateResource.cache
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.GeneratedMSBuildEditorConfig.editorconfig
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfoInputs.cache
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfo.cs
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.CoreCompileInputs.cache
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.sourcelink.json
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\Mercadit.29E53745.Up2Date
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\refint\MercaditoMovil.Views.Winforms.dll
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.pdb
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.genruntimeconfig.cache
+D:\tecnicas de progra\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\ref\MercaditoMovil.Views.Winforms.dll

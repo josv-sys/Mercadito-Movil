@@ -9,10 +9,8 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Features\UserManagement\Commands\" />
-    <Folder Include="Features\UserManagement\Handlers\" />
     <Folder Include="Features\UserManagement\Responses\" />
     <Folder Include="Features\UserManagement\Queries\" />
-    <Folder Include="Validators\" />
   </ItemGroup>
 
   <ItemGroup>

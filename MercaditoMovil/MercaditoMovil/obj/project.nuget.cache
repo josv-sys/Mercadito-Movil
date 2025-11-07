@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "65bKerWvoDU=",
+  "dgSpecHash": "7sTamnFZ8E4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Views.Winforms.csproj",
+  "projectFilePath": "D:\\tecnicas de progra\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Views.Winforms.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\villa\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.10\\microsoft.extensions.dependencyinjection.9.0.10.nupkg.sha512",
-    "C:\\Users\\villa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.10\\microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512"
+    "C:\\Users\\Fernando Madriz\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.10\\microsoft.extensions.dependencyinjection.9.0.10.nupkg.sha512",
+    "C:\\Users\\Fernando Madriz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.10\\microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512"
   ],
   "logs": []
 }
