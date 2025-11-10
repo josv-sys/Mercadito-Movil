@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MercaditoMovil.Views.Winforms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f8e732b0ce0bc4357ddf87dad8eb91c62c035a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57714b1fd6d33c127aca9d24d21e3c76e9104b32")]
 [assembly: System.Reflection.AssemblyProductAttribute("MercaditoMovil.Views.Winforms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MercaditoMovil.Views.Winforms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
