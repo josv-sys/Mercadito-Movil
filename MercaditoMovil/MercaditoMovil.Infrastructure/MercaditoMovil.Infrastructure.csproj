@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataFiles\Loaders\Users\" />
-    <Folder Include="DataFiles\Writers\" />
     <Folder Include="Repositories\InMemory\" />
     <Folder Include="Services\Clock\" />
   </ItemGroup>
