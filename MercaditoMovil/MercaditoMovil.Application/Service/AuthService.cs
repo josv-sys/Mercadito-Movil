@@ -1,100 +1,69 @@
-﻿using MercaditoMovil.Application.Validators;
+﻿using MercaditoMovil.Application.Features.UserManagement;
+using MercaditoMovil.Application.Validators;
 using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Domain.Entities.User;
-using MercaditoMovil.Domain.Interfaces.IUserRepository;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MercaditoMovil.Domain.Interfaces;
 
 namespace MercaditoMovil.Application.Service
 {
     /// <summary>
-    /// Provides login and registration using a repository and validators
+    /// Basic authentication service backed by repository.
     /// </summary>
-    public class AuthService
+    public sealed class AuthService : IAuthService
     {
-        private readonly IUserRepository _users;
+        private readonly IUserRepository _repo;
 
         /// <summary>
-        /// Creates the service with a user repository.
+        /// Builds the service with repository dependency.
         /// </summary>
-        public AuthService(IUserRepository users) => _users = users;
-
-        /// <summary>
-        /// Returns the user when credentials are valid; otherwise null.
-        /// </summary>
-        public User? Login(string username, string password)
+        public AuthService(IUserRepository repo)
         {
-            var errs = UserValidator.ValidateCredentials(username, password);
-            if (errs.Count > 0) return null;
-
-            username = username.Trim();
-            var u = _users.FindByUsername(username);
-            if (u == null) return null;
-            return u.Password == password.Trim() ? u : null;
+            _repo = repo;
         }
 
         /// <summary>
-        /// Registers a new user after validation and uniqueness checks.
-        /// Returns the created user or null on failure.
+        /// Validates credentials and compares password.
         /// </summary>
-        public User? RegisterBasic(
-            string username,
-            string password,
-            string firstName,
-            string lastName1,
-            string lastName2,
-            string nationalId,
-            string email,
-            string phone,
-            string province,
-            string canton,
-            string district,
-            string exactAddress,
-            string marketId,
-            out List<string>? errors)
+        public bool Login(string username, string password, out string message)
         {
-            var errs = UserValidator.ValidateRegistration(username, password, nationalId, email, phone);
-            if (errs.Count > 0)
+            if (!UserValidator.ValidateLogin(username, password, out message))
+                return false;
+
+            var user = _repo.GetByUsername(username);
+            if (user is null || user.Password != password)
             {
-                errors = null;
-                return null;
+                message = "Usuario o contraseña incorrectos.";
+                return false;
             }
 
-            username = username.Trim();
-            if (_users.UsernameExists(username))
-            {
-                errors = null;
-                return null;
-            }
-
-            nationalId = NormalizeNationalId(nationalId);
-            if (nationalId.Length > 0 && _users.NationalIdExists(nationalId))
-            {
-                errors = null;
-                return null;
-            }
-
-            string newId = "USR-" + Guid.NewGuid().ToString("N")[..8].ToUpper();
-
-            firstName ??= ""; lastName1 ??= ""; lastName2 ??= "";
-            email ??= ""; phone ??= "";
-            province ??= ""; canton ??= ""; district ??= "";
-            exactAddress ??= ""; marketId ??= "";
-
-            var user = new User(
-                newId, username, password ?? "",
-                firstName, lastName1, lastName2,
-                nationalId, email, phone,
-                province, canton, district, exactAddress, marketId);
-            errors = null;
-            return _users.Add(user);
+            message = "Inicio de sesión exitoso.";
+            return true;
         }
 
-        private string NormalizeNationalId(string nationalId)
+        /// <summary>
+        /// Registers user after checks and duplicates by username.
+        /// </summary>
+        public bool Register(User user, out string message)
         {
-            throw new NotImplementedException();
+            if (!UserValidator.ValidateRegister(user, out message))
+                return false;
+
+            var existing = _repo.GetByUsername(user.Username);
+            if (existing != null)
+            {
+                message = "El nombre de usuario ya existe.";
+                return false;
+            }
+
+            if (!_repo.Add(user, out var repoError))
+            {
+                message = repoError;
+                return false;
+            }
+
+            message = user.MarketId == "MKT-000"
+                ? "Usuario registrado correctamente. Por ahora no hay una feria cercana a tu ubicación; seguimos trabajando para cubrir todo CR."
+                : "Usuario registrado correctamente.";
+            return true;
         }
     }
 }

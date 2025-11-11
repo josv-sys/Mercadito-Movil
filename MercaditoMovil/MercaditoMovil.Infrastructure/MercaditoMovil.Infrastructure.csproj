@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\InMemory\" />
-    <Folder Include="Services\Clock\" />
+    <Compile Remove="Repositories\InMemory\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Repositories\InMemory\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Repositories\InMemory\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>

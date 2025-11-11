@@ -7,12 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Features\NewFolder\" />
-    <Folder Include="Features\UserManagement\Commands\" />
-    <Folder Include="Features\UserManagement\Handlers\" />
-    <Folder Include="Features\UserManagement\Responses\" />
-    <Folder Include="Features\UserManagement\Queries\" />
+    <Compile Remove="Common\**" />
+    <Compile Remove="Features\NewFolder\**" />
+    <Compile Remove="Features\UserManagement\Commands\**" />
+    <Compile Remove="Features\UserManagement\Handlers\**" />
+    <Compile Remove="Features\UserManagement\Queries\**" />
+    <Compile Remove="Features\UserManagement\Responses\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <EmbeddedResource Remove="Features\NewFolder\**" />
+    <EmbeddedResource Remove="Features\UserManagement\Commands\**" />
+    <EmbeddedResource Remove="Features\UserManagement\Handlers\**" />
+    <EmbeddedResource Remove="Features\UserManagement\Queries\**" />
+    <EmbeddedResource Remove="Features\UserManagement\Responses\**" />
+    <None Remove="Common\**" />
+    <None Remove="Features\NewFolder\**" />
+    <None Remove="Features\UserManagement\Commands\**" />
+    <None Remove="Features\UserManagement\Handlers\**" />
+    <None Remove="Features\UserManagement\Queries\**" />
+    <None Remove="Features\UserManagement\Responses\**" />
   </ItemGroup>
 
   <ItemGroup>
