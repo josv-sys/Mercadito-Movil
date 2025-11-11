@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Application.Features.UserManagement
 {
-    internal interface IAuthService
+    /// <summary>
+    /// Authentication and registration use cases.
+    /// </summary>
+    public interface IAuthService
     {
+        bool Login(string username, string password, out string message);
+        bool Register(User user, out string message);
     }
 }

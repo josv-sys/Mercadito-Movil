@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Results\" />
+    <Compile Remove="Constants\**" />
+    <Compile Remove="Extensions\**" />
+    <Compile Remove="Results\**" />
+    <EmbeddedResource Remove="Constants\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <EmbeddedResource Remove="Results\**" />
+    <None Remove="Constants\**" />
+    <None Remove="Extensions\**" />
+    <None Remove="Results\**" />
   </ItemGroup>
 
 </Project>

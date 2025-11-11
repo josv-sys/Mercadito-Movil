@@ -1,59 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+﻿using MercaditoMovil.Domain.Entities;
 
 namespace MercaditoMovil.Application.Validators
 {
     /// <summary>
-    /// Basic validation rules for user inputs
+    /// Centralized validation for login and register.
     /// </summary>
     public static partial class UserValidator
     {
         /// <summary>
-        /// Validates login credentials
+        /// Validates login inputs.
         /// </summary>
-        public static List<string> ValidateCredentials(string username, string password)
+        public static bool ValidateLogin(string username, string password, out string message)
         {
-            var errors = new List<string>();
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                message = "Por favor ingresa usuario y contraseña.";
+                return false;
+            }
 
-            username ??= ""; password ??= "";
-            username = username.Trim(); password = password.Trim();
-
-            if (username.Length == 0) errors.Add("El usuario es obligatorio.");
-            if (password.Length == 0) errors.Add("La contraseña es obligatoria.");
-
-            return errors;
+            message = string.Empty;
+            return true;
         }
 
         /// <summary>
-        /// Validates minimal registration fields
+        /// Validates required fields for registration.
         /// </summary>
-        public static List<string> ValidateRegistration(
-            string username,
-            string password,
-            string nationalId,
-            string email,
-            string phone)
+        public static bool ValidateRegister(User user, out string message)
         {
-            var errors = ValidateCredentials(username, password);
+            if (user is null)
+            {
+                message = "Datos de usuario inválidos.";
+                return false;
+            }
 
-            nationalId ??= ""; email ??= ""; phone ??= "";
-            nationalId = nationalId.Trim(); email = email.Trim(); phone = phone.Trim();
+            if (string.IsNullOrWhiteSpace(user.Username) ||
+                string.IsNullOrWhiteSpace(user.Password) ||
+                string.IsNullOrWhiteSpace(user.FirstName) ||
+                string.IsNullOrWhiteSpace(user.NationalId) ||
+                string.IsNullOrWhiteSpace(user.Email))
+            {
+                message = "Campos obligatorios vacíos: usuario, contraseña, nombre, cédula y correo.";
+                return false;
+            }
 
-            if (nationalId.Length > 0 && !CedulaRegex().IsMatch(nationalId))
-                errors.Add("La cédula debe tener 9 dígitos.");
-            if (email.Length > 0 && !email.Contains('@'))
-                errors.Add("El correo no es válido.");
-            if (phone.Length > 0 && !Regex.IsMatch(phone, @"^\d{8}$"))
-                errors.Add("El teléfono debe tener 8 dígitos.");
-
-            return errors;
+            message = string.Empty;
+            return true;
         }
-
-        [GeneratedRegex(@"^\d{9}$")]
-        private static partial Regex CedulaRegex();
     }
 }
