@@ -25,3 +25,34 @@ C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\ne
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.pdb
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.genruntimeconfig.cache
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\ref\MercaditoMovil.Views.Winforms.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.exe
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\DataFiles\People\users.csv
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.deps.json
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.runtimeconfig.json
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\CsvHelper.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\ReaLTaiizor.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Application.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Domain.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Infrastructure.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Shared.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Application.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Shared.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Domain.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\bin\Debug\net9.0-windows\MercaditoMovil.Infrastructure.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.AssemblyReference.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.WinForms.FrmLogin.resources
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.GenerateResource.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.GeneratedMSBuildEditorConfig.editorconfig
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfoInputs.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.AssemblyInfo.cs
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.csproj.CoreCompileInputs.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\Mercadit.29E53745.Up2Date
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\refint\MercaditoMovil.Views.Winforms.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\MercaditoMovil.Views.Winforms.genruntimeconfig.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil\obj\Debug\net9.0-windows\ref\MercaditoMovil.Views.Winforms.dll

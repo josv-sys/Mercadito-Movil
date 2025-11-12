@@ -1,29 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MercaditoMovil.Domain.Entities
+namespace MercaditoMovil.Domain.Entities.User
 {
     /// <summary>
-    /// Represents an application user with null-guarded strings.
+    /// Represents a registered user and its persisted fields.
     /// </summary>
-    public sealed class User
+    public class User
     {
-        public string UserId { get; }
-        public string Username { get; }
-        public string Password { get; }
-        public string FirstName { get; }
-        public string LastName1 { get; }
-        public string LastName2 { get; }
-        public string NationalId { get; }
-        public string Email { get; }
-        public string Phone { get; }
-        public string ExactAddress { get; }
-        public string Province { get; }
-        public string Canton { get; }
-        public string District { get; }
-        public string MarketId { get; }
+        public string UserId { get; private set; }
+        public string Username { get; private set; }
+        public string Password { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName1 { get; private set; }
+        public string LastName2 { get; private set; }
+        public string NationalId { get; private set; }
+        public string Email { get; private set; }
+        public string Phone { get; private set; }
+        public string Province { get; private set; }
+        public string Canton { get; private set; }
+        public string District { get; private set; }
+        public string ExactAddress { get; private set; }
+        public string MarketId { get; private set; }
 
         /// <summary>
-        /// Builds a user. Defaults to empty strings and "MKT-000" when null.
+        /// Builds a <c>User</c> normalizing nulls and trimming values.
         /// </summary>
         public User(
             string userId,
@@ -35,41 +39,41 @@ namespace MercaditoMovil.Domain.Entities
             string nationalId,
             string email,
             string phone,
-            string exactAddress,
             string province,
             string canton,
             string district,
+            string exactAddress,
             string marketId)
         {
-            userId ??= string.Empty;
-            username ??= string.Empty;
-            password ??= string.Empty;
-            firstName ??= string.Empty;
-            lastName1 ??= string.Empty;
-            lastName2 ??= string.Empty;
-            nationalId ??= string.Empty;
-            email ??= string.Empty;
-            phone ??= string.Empty;
-            exactAddress ??= string.Empty;
-            province ??= string.Empty;
-            canton ??= string.Empty;
-            district ??= string.Empty;
-            marketId ??= "MKT-000";
+            userId ??= "";
+            username ??= "";
+            password ??= "";
+            firstName ??= "";
+            lastName1 ??= "";
+            lastName2 ??= "";
+            nationalId ??= "";
+            email ??= "";
+            phone ??= "";
+            province ??= "";
+            canton ??= "";
+            district ??= "";
+            exactAddress ??= "";
+            marketId ??= "";
 
-            UserId = userId;
-            Username = username;
-            Password = password;
-            FirstName = firstName;
-            LastName1 = lastName1;
-            LastName2 = lastName2;
-            NationalId = nationalId;
-            Email = email;
-            Phone = phone;
-            ExactAddress = exactAddress;
-            Province = province;
-            Canton = canton;
-            District = district;
-            MarketId = marketId;
+            UserId = userId.Trim();
+            Username = username.Trim();
+            Password = password.Trim();
+            FirstName = firstName.Trim();
+            LastName1 = lastName1.Trim();
+            LastName2 = lastName2.Trim();
+            NationalId = nationalId.Trim();
+            Email = email.Trim();
+            Phone = phone.Trim();
+            Province = province.Trim();
+            Canton = canton.Trim();
+            District = district.Trim();
+            ExactAddress = exactAddress.Trim();
+            MarketId = marketId.Trim();
         }
     }
 }

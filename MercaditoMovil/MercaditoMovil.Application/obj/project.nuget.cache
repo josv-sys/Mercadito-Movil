@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ermQ5s0saBk=",
+  "dgSpecHash": "5Q9d/75iMWI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\villa\\Desktop\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Application\\MercaditoMovil.Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Fernando Madriz\\Desktop\\Story1.2.1–Create-Cart_Structure\\MercaditoMovil\\MercaditoMovil\\MercaditoMovil.Application\\MercaditoMovil.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Fernando Madriz\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

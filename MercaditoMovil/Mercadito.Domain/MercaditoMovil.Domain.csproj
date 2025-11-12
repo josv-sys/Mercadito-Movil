@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Interfaces\Csv\**" />
-    <Compile Remove="ValueObjects\**" />
-    <EmbeddedResource Remove="Interfaces\Csv\**" />
-    <EmbeddedResource Remove="ValueObjects\**" />
-    <None Remove="Interfaces\Csv\**" />
-    <None Remove="ValueObjects\**" />
+    <Folder Include="Interfaces\Csv\IUserCsvWriter\" />
+    <Folder Include="Interfaces\Csv\IUserCsvLoader\" />
+    <Folder Include="ValueObjects\Address\" />
   </ItemGroup>
 
 </Project>

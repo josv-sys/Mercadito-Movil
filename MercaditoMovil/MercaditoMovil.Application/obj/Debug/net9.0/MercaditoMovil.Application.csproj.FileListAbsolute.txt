@@ -16,3 +16,23 @@ C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\refint\MercaditoMovil.Application.dll
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.pdb
 C:\Users\villa\Desktop\MercaditoMovil\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\ref\MercaditoMovil.Application.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\DataFiles\People\users.csv
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Application.deps.json
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Application.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Application.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Domain.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Infrastructure.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Shared.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Domain.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\bin\Debug\net9.0\MercaditoMovil.Shared.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.csproj.AssemblyReference.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.AssemblyInfoInputs.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.AssemblyInfo.cs
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.csproj.CoreCompileInputs.cache
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\Mercadit.427148FB.Up2Date
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\refint\MercaditoMovil.Application.dll
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\MercaditoMovil.Application.pdb
+D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Application\obj\Debug\net9.0\ref\MercaditoMovil.Application.dll

@@ -1,70 +1,88 @@
-﻿using MercaditoMovil.Application.Features.UserManagement;
-using MercaditoMovil.Application.Validators;
+﻿using System;
+using System.IO;
+using Microsoft.VisualBasic.FileIO;
 using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Domain.Interfaces;
 
-namespace MercaditoMovil.Application.Service
+namespace MercaditoMovil.Application.Services
 {
-    /// <summary>
-    /// Basic authentication service backed by repository.
-    /// </summary>
-    public sealed class AuthService : IAuthService
+    public class AuthService
     {
-        private readonly IUserRepository _repo;
+        private readonly string _rutaUsuarios;
 
-        /// <summary>
-        /// Builds the service with repository dependency.
-        /// </summary>
-        public AuthService(IUserRepository repo)
+        public AuthService()
         {
-            _repo = repo;
+            // 🧭 Ruta fija y exacta según tu carpeta real
+            _rutaUsuarios = @"D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\DataFiles\People\users.csv";
+            Console.WriteLine($"📁 Buscando archivo en: {_rutaUsuarios}");
         }
 
-        /// <summary>
-        /// Validates credentials and compares password.
-        /// </summary>
-        public bool Login(string username, string password, out string message)
+        public Usuario? IniciarSesion(string correo, string contrasena)
         {
-            if (!UserValidator.ValidateLogin(username, password, out message))
-                return false;
-
-            var user = _repo.GetByUsername(username);
-            if (user is null || user.Password != password)
+            if (!File.Exists(_rutaUsuarios))
             {
-                message = "Usuario o contraseña incorrectos.";
-                return false;
+                Console.WriteLine("❌ No se encontró el archivo users.csv en la ruta especificada.");
+                return null;
             }
 
-            message = "Inicio de sesión exitoso.";
-            return true;
-        }
+            using var parser = new TextFieldParser(_rutaUsuarios);
+            parser.SetDelimiters(",");
+            parser.HasFieldsEnclosedInQuotes = true;
 
-        /// <summary>
-        /// Registers user after checks and duplicates by username.
-        /// </summary>
-        public bool Register(User user, out string message)
-        {
-            if (!UserValidator.ValidateRegister(user, out message))
-                return false;
-
-            var existing = _repo.GetByUsername(user.Username);
-            if (existing != null)
+            if (parser.EndOfData)
             {
-                message = "El nombre de usuario ya existe.";
-                return false;
+                Console.WriteLine("⚠️ El archivo está vacío");
+                return null;
             }
 
-            if (!_repo.Add(user, out var repoError))
+            var headers = parser.ReadFields() ?? Array.Empty<string>();
+            for (int i = 0; i < headers.Length; i++)
+                headers[i] = headers[i].Trim('"', ' ').Trim();
+
+            int idxUserId = Array.IndexOf(headers, "UserId");
+            int idxEmail = Array.IndexOf(headers, "Email");
+            int idxPassword = Array.IndexOf(headers, "Password");
+            int idxFirst = Array.IndexOf(headers, "FirstName");
+            int idxLast1 = Array.IndexOf(headers, "FirstLastName");
+            int idxLast2 = Array.IndexOf(headers, "SecondLastName");
+
+            correo = correo.Trim().ToLower();
+            contrasena = contrasena.Trim();
+
+            while (!parser.EndOfData)
             {
-                message = repoError;
-                return false;
+                var campos = parser.ReadFields();
+                if (campos == null || campos.Length < headers.Length)
+                    continue;
+
+                string email = (campos[idxEmail] ?? "").Trim('"', ' ').ToLower();
+                string pass = (campos[idxPassword] ?? "").Trim('"', ' ');
+
+                email = email.Replace("\r", "").Replace("\n", "").Trim();
+                pass = pass.Replace("\r", "").Replace("\n", "").Trim();
+
+                Console.WriteLine($"📄 Leído -> Email: '{email}' | Password: '{pass}'");
+
+                if (email == correo && pass == contrasena)
+                {
+                    Console.WriteLine("✅ Coincidencia encontrada");
+                    string nombre = $"{campos[idxFirst]} {campos[idxLast1]} {campos[idxLast2]}".Trim();
+
+                    return new Usuario
+                    {
+                        UserId = campos[idxUserId],
+                        Nombre = nombre,
+                        Correo = email
+                    };
+                }
             }
 
-            message = user.MarketId == "MKT-000"
-                ? "Usuario registrado correctamente. Por ahora no hay una feria cercana a tu ubicación; seguimos trabajando para cubrir todo CR."
-                : "Usuario registrado correctamente.";
-            return true;
+            Console.WriteLine("❌ Ninguna coincidencia encontrada.");
+            return null;
         }
     }
 }
+
+
+
+
 
