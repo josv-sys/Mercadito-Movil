@@ -11,16 +11,15 @@ namespace MercaditoMovil.Application.Services
 
         public AuthService()
         {
-            // 🧭 Ruta fija y exacta según tu carpeta real
-            _rutaUsuarios = @"D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\DataFiles\People\users.csv";
-            Console.WriteLine($"📁 Buscando archivo en: {_rutaUsuarios}");
+            _rutaUsuarios =
+                @"C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\DataFiles\People\users.csv";
         }
 
         public Usuario? IniciarSesion(string correo, string contrasena)
         {
             if (!File.Exists(_rutaUsuarios))
             {
-                Console.WriteLine("❌ No se encontró el archivo users.csv en la ruta especificada.");
+                // No mostramos MessageBox aquí (capa Application)
                 return null;
             }
 
@@ -28,61 +27,57 @@ namespace MercaditoMovil.Application.Services
             parser.SetDelimiters(",");
             parser.HasFieldsEnclosedInQuotes = true;
 
-            if (parser.EndOfData)
-            {
-                Console.WriteLine("⚠️ El archivo está vacío");
+            var headers = parser.ReadFields();
+            if (headers == null)
                 return null;
-            }
 
-            var headers = parser.ReadFields() ?? Array.Empty<string>();
+            // Normalizar encabezados
             for (int i = 0; i < headers.Length; i++)
-                headers[i] = headers[i].Trim('"', ' ').Trim();
+                headers[i] = Limpiar(headers[i]);
 
-            int idxUserId = Array.IndexOf(headers, "UserId");
-            int idxEmail = Array.IndexOf(headers, "Email");
-            int idxPassword = Array.IndexOf(headers, "Password");
-            int idxFirst = Array.IndexOf(headers, "FirstName");
-            int idxLast1 = Array.IndexOf(headers, "FirstLastName");
-            int idxLast2 = Array.IndexOf(headers, "SecondLastName");
+            // Indices según tu archivo real
+            int iUserId = Array.IndexOf(headers, "UserId");
+            int iEmail = Array.IndexOf(headers, "Email");
+            int iPassword = Array.IndexOf(headers, "Password");
+            int iFirst = Array.IndexOf(headers, "FirstName");
+            int iLast1 = Array.IndexOf(headers, "FirstLastName");
+            int iLast2 = Array.IndexOf(headers, "SecondLastName");
+            int iMarket = Array.IndexOf(headers, "MarketId");
 
-            correo = correo.Trim().ToLower();
-            contrasena = contrasena.Trim();
+            correo = Limpiar(correo).ToLower();
+            contrasena = Limpiar(contrasena);
 
             while (!parser.EndOfData)
             {
                 var campos = parser.ReadFields();
-                if (campos == null || campos.Length < headers.Length)
+                if (campos == null)
                     continue;
 
-                string email = (campos[idxEmail] ?? "").Trim('"', ' ').ToLower();
-                string pass = (campos[idxPassword] ?? "").Trim('"', ' ');
-
-                email = email.Replace("\r", "").Replace("\n", "").Trim();
-                pass = pass.Replace("\r", "").Replace("\n", "").Trim();
-
-                Console.WriteLine($"📄 Leído -> Email: '{email}' | Password: '{pass}'");
+                string email = Limpiar(campos[iEmail]).ToLower();
+                string pass = Limpiar(campos[iPassword]);
 
                 if (email == correo && pass == contrasena)
                 {
-                    Console.WriteLine("✅ Coincidencia encontrada");
-                    string nombre = $"{campos[idxFirst]} {campos[idxLast1]} {campos[idxLast2]}".Trim();
-
                     return new Usuario
                     {
-                        UserId = campos[idxUserId],
-                        Nombre = nombre,
-                        Correo = email
+                        UserId = Limpiar(campos[iUserId]),
+                        Nombre = $"{Limpiar(campos[iFirst])} {Limpiar(campos[iLast1])} {Limpiar(campos[iLast2])}",
+                        Correo = email,
+                        MarketId = Limpiar(campos[iMarket])
                     };
                 }
             }
 
-            Console.WriteLine("❌ Ninguna coincidencia encontrada.");
             return null;
+        }
+
+        private string Limpiar(string s)
+        {
+            if (s == null) return "";
+            return s.Replace("\"", "")
+                    .Replace("\r", "")
+                    .Replace("\n", "")
+                    .Trim();
         }
     }
 }
-
-
-
-
-

@@ -2,153 +2,127 @@
 {
     partial class FrmCarrito
     {
-        private ReaLTaiizor.Controls.MaterialComboBox comboFerias;
-        private ReaLTaiizor.Controls.MaterialListBox listaProductos;
-        private ReaLTaiizor.Controls.MaterialListBox listaCarrito;
-        private ReaLTaiizor.Controls.MaterialButton btnAgregar;
-        private ReaLTaiizor.Controls.MaterialButton btnQuitar;
-        private ReaLTaiizor.Controls.MaterialButton btnFinalizar;
+        private ReaLTaiizor.Controls.MaterialComboBox ComboFerias;
+        private ReaLTaiizor.Controls.MaterialListBox ListaProductos;
+        private ReaLTaiizor.Controls.MaterialListBox ListaCarrito;
+        private ReaLTaiizor.Controls.MaterialButton BtnAgregar;
+        private ReaLTaiizor.Controls.MaterialButton BtnQuitar;
+        private ReaLTaiizor.Controls.MaterialButton BtnFinalizar;
 
+        /// <summary>
+        /// Limpieza de recursos
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+                components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void InitializeComponent()
         {
-            this.comboFerias = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.listaProductos = new ReaLTaiizor.Controls.MaterialListBox();
-            this.listaCarrito = new ReaLTaiizor.Controls.MaterialListBox();
-            this.btnAgregar = new ReaLTaiizor.Controls.MaterialButton();
-            this.btnQuitar = new ReaLTaiizor.Controls.MaterialButton();
-            this.btnFinalizar = new ReaLTaiizor.Controls.MaterialButton();
+            this.ComboFerias = new ReaLTaiizor.Controls.MaterialComboBox();
+            this.ListaProductos = new ReaLTaiizor.Controls.MaterialListBox();
+            this.ListaCarrito = new ReaLTaiizor.Controls.MaterialListBox();
+            this.BtnAgregar = new ReaLTaiizor.Controls.MaterialButton();
+            this.BtnQuitar = new ReaLTaiizor.Controls.MaterialButton();
+            this.BtnFinalizar = new ReaLTaiizor.Controls.MaterialButton();
+
             this.SuspendLayout();
 
-            // 
-            // comboFerias
-            // 
-            this.comboFerias.AutoResize = false;
-            this.comboFerias.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            this.comboFerias.Depth = 0;
-            this.comboFerias.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboFerias.DropDownHeight = 174;
-            this.comboFerias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboFerias.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.comboFerias.ForeColor = System.Drawing.Color.FromArgb(222, 0, 0, 0);
-            this.comboFerias.FormattingEnabled = true;
-            this.comboFerias.Hint = "Seleccionar feria";
-            this.comboFerias.IntegralHeight = false;
-            this.comboFerias.ItemHeight = 43;
-            this.comboFerias.Location = new System.Drawing.Point(30, 90);
-            this.comboFerias.MaxDropDownItems = 4;
-            this.comboFerias.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.comboFerias.Name = "comboFerias";
-            this.comboFerias.Size = new System.Drawing.Size(300, 49);
-            this.comboFerias.StartIndex = 0;
+            // ============================================================
+            // ComboFerias
+            // ============================================================
+            this.ComboFerias.AutoResize = false;
+            this.ComboFerias.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            this.ComboFerias.Depth = 0;
+            this.ComboFerias.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ComboFerias.DropDownHeight = 174;
+            this.ComboFerias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboFerias.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.ComboFerias.ForeColor = System.Drawing.Color.Black;
+            this.ComboFerias.Hint = "Seleccionar feria";
+            this.ComboFerias.IntegralHeight = false;
+            this.ComboFerias.ItemHeight = 43;
+            this.ComboFerias.Location = new System.Drawing.Point(25, 100);
+            this.ComboFerias.MaxDropDownItems = 4;
+            this.ComboFerias.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.ComboFerias.Size = new System.Drawing.Size(320, 49);
 
-            // 
-            // listaProductos
-            // 
-            this.listaProductos.BackColor = System.Drawing.Color.FromArgb(50, 50, 60);
-            this.listaProductos.BorderColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.listaProductos.Depth = 0;
-            this.listaProductos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular);
-            this.listaProductos.ForeColor = System.Drawing.Color.White;
-            this.listaProductos.Location = new System.Drawing.Point(30, 160);
-            this.listaProductos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.listaProductos.Name = "listaProductos";
-            this.listaProductos.SelectedIndex = -1;
-            this.listaProductos.Size = new System.Drawing.Size(300, 260);
+            // ============================================================
+            // ListaProductos
+            // ============================================================
+            this.ListaProductos.BackColor = System.Drawing.Color.White;
+            this.ListaProductos.BorderColor = System.Drawing.Color.LightGray;
+            this.ListaProductos.Depth = 0;
+            this.ListaProductos.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.ListaProductos.Location = new System.Drawing.Point(25, 170);
+            this.ListaProductos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.ListaProductos.Size = new System.Drawing.Size(320, 330);
 
-            // 
-            // listaCarrito
-            // 
-            this.listaCarrito.BackColor = System.Drawing.Color.FromArgb(50, 50, 60);
-            this.listaCarrito.BorderColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.listaCarrito.Depth = 0;
-            this.listaCarrito.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular);
-            this.listaCarrito.ForeColor = System.Drawing.Color.White;
-            this.listaCarrito.Location = new System.Drawing.Point(430, 160);
-            this.listaCarrito.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.listaCarrito.Name = "listaCarrito";
-            this.listaCarrito.SelectedIndex = -1;
-            this.listaCarrito.Size = new System.Drawing.Size(300, 260);
+            // ============================================================
+            // ListaCarrito
+            // ============================================================
+            this.ListaCarrito.BackColor = System.Drawing.Color.White;
+            this.ListaCarrito.BorderColor = System.Drawing.Color.LightGray;
+            this.ListaCarrito.Depth = 0;
+            this.ListaCarrito.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.ListaCarrito.Location = new System.Drawing.Point(430, 170);
+            this.ListaCarrito.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.ListaCarrito.Size = new System.Drawing.Size(320, 330);
 
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAgregar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAgregar.Depth = 0;
-            this.btnAgregar.HighEmphasis = true;
-            this.btnAgregar.Icon = null;
-            this.btnAgregar.Location = new System.Drawing.Point(350, 210);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAgregar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAgregar.Size = new System.Drawing.Size(60, 36);
-            this.btnAgregar.Text = "→";
-            this.btnAgregar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAgregar.UseAccentColor = false;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            // ============================================================
+            // BtnAgregar
+            // ============================================================
+            this.BtnAgregar.AutoSize = false;
+            this.BtnAgregar.Text = "Agregar →";
+            this.BtnAgregar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnAgregar.Location = new System.Drawing.Point(360, 240);
+            this.BtnAgregar.Size = new System.Drawing.Size(60, 45);
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
 
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnQuitar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnQuitar.Depth = 0;
-            this.btnQuitar.HighEmphasis = true;
-            this.btnQuitar.Icon = null;
-            this.btnQuitar.Location = new System.Drawing.Point(350, 270);
-            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnQuitar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnQuitar.Size = new System.Drawing.Size(60, 36);
-            this.btnQuitar.Text = "←";
-            this.btnQuitar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnQuitar.UseAccentColor = false;
-            this.btnQuitar.UseVisualStyleBackColor = true;
-            this.btnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
+            // ============================================================
+            // BtnQuitar
+            // ============================================================
+            this.BtnQuitar.AutoSize = false;
+            this.BtnQuitar.Text = "← Quitar";
+            this.BtnQuitar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnQuitar.Location = new System.Drawing.Point(360, 300);
+            this.BtnQuitar.Size = new System.Drawing.Size(60, 45);
+            this.BtnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
 
-            // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnFinalizar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnFinalizar.Depth = 0;
-            this.btnFinalizar.HighEmphasis = true;
-            this.btnFinalizar.Icon = null;
-            this.btnFinalizar.Location = new System.Drawing.Point(500, 450);
-            this.btnFinalizar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnFinalizar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnFinalizar.Size = new System.Drawing.Size(150, 36);
-            this.btnFinalizar.Text = "Finalizar Compra";
-            this.btnFinalizar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnFinalizar.UseAccentColor = true;
-            this.btnFinalizar.UseVisualStyleBackColor = true;
-            this.btnFinalizar.Click += new System.EventHandler(this.BtnFinalizar_Click);
+            // ============================================================
+            // BtnFinalizar
+            // ============================================================
+            this.BtnFinalizar.AutoSize = false;
+            this.BtnFinalizar.Text = "Finalizar compra";
+            this.BtnFinalizar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnFinalizar.Location = new System.Drawing.Point(430, 520);
+            this.BtnFinalizar.Size = new System.Drawing.Size(200, 50);
+            this.BtnFinalizar.Click += new System.EventHandler(this.BtnFinalizar_Click);
 
-            // 
+            // ============================================================
             // FrmCarrito
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 520);
-            this.Controls.Add(this.comboFerias);
-            this.Controls.Add(this.listaProductos);
-            this.Controls.Add(this.listaCarrito);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnQuitar);
-            this.Controls.Add(this.btnFinalizar);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            // ============================================================
+            this.ClientSize = new System.Drawing.Size(780, 600);
+            this.Controls.Add(this.ComboFerias);
+            this.Controls.Add(this.ListaProductos);
+            this.Controls.Add(this.ListaCarrito);
+            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.BtnQuitar);
+            this.Controls.Add(this.BtnFinalizar);
+
             this.Name = "FrmCarrito";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "🛒 Carrito de Compras - Mercadito Móvil";
+            this.Text = "Carrito de Compras";
             this.Load += new System.EventHandler(this.FrmCarrito_Load);
+
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
     }
 }
+

@@ -1,50 +1,110 @@
 ﻿using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Infrastructure.Repositories;
 using MercaditoMovil.Views.WinForms.Controllers;
 using ReaLTaiizor.Child.Material;
 using ReaLTaiizor.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace MercaditoMovil.Views.WinForms
 {
-    public partial class FrmCarrito : Form
+    public partial class FrmCarrito : ReaLTaiizor.Forms.MaterialForm
     {
         private readonly FrmCarritoController _controller;
 
         public FrmCarrito(Usuario usuario)
         {
             InitializeComponent();
-            _controller = new FrmCarritoController(usuario, this);
+            _controller = new FrmCarritoController(usuario);
         }
 
         private void FrmCarrito_Load(object sender, EventArgs e)
         {
-            _controller.CargarFerias();
-            _controller.CargarProductos();
+            CargarFeria();
+            CargarProductos();
+        }
+
+        private void CargarFeria()
+        {
+            var feria = _controller.ObtenerFeria();
+            ComboFerias.Items.Clear();
+
+            if (feria != null)
+            {
+                ComboFerias.Items.Add($"{feria.MarketId} - {feria.MarketName}");
+                ComboFerias.SelectedIndex = 0;
+            }
+            else
+            {
+                ComboFerias.Items.Add("No asignada");
+                ComboFerias.SelectedIndex = 0;
+            }
+        }
+
+        private void CargarProductos()
+        {
+            ListaProductos.Items.Clear();
+
+            var productos = _controller.ObtenerProductos();
+
+            foreach (var p in productos)
+            {
+                ListaProductos.Items.Add(new MaterialListBoxItem
+                {
+                    Text = $"{p.Nombre} - ₡{p.Precio:N0} - Stock:{p.Stock}",
+                    Tag = p
+                });
+            }
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            _controller.AgregarProducto();
+            if (ListaProductos.SelectedItem is MaterialListBoxItem item &&
+                item.Tag is Producto prod)
+            {
+                if (prod.Stock <= 0)
+                {
+                    MessageBox.Show("Producto sin stock", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                _controller.Agregar(prod);
+
+                ListaCarrito.Items.Add(new MaterialListBoxItem
+                {
+                    Text = $"{prod.Nombre} - ₡{prod.Precio:N0}",
+                    Tag = prod
+                });
+            }
         }
 
         private void BtnQuitar_Click(object sender, EventArgs e)
         {
-            _controller.QuitarProducto();
+            if (ListaCarrito.SelectedItem is MaterialListBoxItem item &&
+                item.Tag is Producto prod)
+            {
+                _controller.Quitar(prod);
+                ListaCarrito.Items.Remove(item);
+            }
         }
 
+        // ---------------------------------------------------------
+        //  ✔ FINALIZAR COMPRA (ya arreglado)
+        // ---------------------------------------------------------
         private void BtnFinalizar_Click(object sender, EventArgs e)
         {
-            _controller.FinalizarCompra();
-        }
+            if (_controller.FinalizarCompra())
+            {
+                MessageBox.Show("Compra registrada con éxito.",
+                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        // === ACCESORES PARA EL CONTROLADOR ===
-        public MaterialComboBox ComboFerias => comboFerias;
-        public MaterialListBox ListaProductos => listaProductos;
-        public MaterialListBox ListaCarrito => listaCarrito;
+                ListaCarrito.Items.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No hay productos en el carrito.",
+                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
-

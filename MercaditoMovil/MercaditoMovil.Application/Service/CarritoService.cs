@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using MercaditoMovil.Domain.Entities;
 using MercaditoMovil.Infrastructure.Repositories;
@@ -7,46 +9,64 @@ namespace MercaditoMovil.Application.Services
 {
     public class CarritoService
     {
-        private readonly DataFileRepository _repo;
-        private readonly List<Producto> _catalogo;
-        private readonly List<Feria> _ferias;
-        private readonly List<Producto> _carrito;
+        private readonly Usuario _usuario;
+        private readonly MarketRepository _marketRepo;
+        private readonly ProductAvailabilityRepository _availabilityRepo;
 
-        public CarritoService(DataFileRepository repo)
+        private readonly List<Producto> _carrito = new();
+
+        public CarritoService(Usuario usuario)
         {
-            _repo = repo;
-            _catalogo = _repo.ObtenerProductosCatalogo();
-            _ferias = _repo.ObtenerFerias();
-            _carrito = new List<Producto>();
+            _usuario = usuario;
+            _marketRepo = new MarketRepository();
+            _availabilityRepo = new ProductAvailabilityRepository();
         }
 
-        // === Obtener catálogos y ferias ===
-        public List<Feria> ObtenerFerias() => _ferias;
-        public List<Producto> ObtenerProductos() => _catalogo;
-        public List<Producto> ObtenerCarrito() => _carrito;
+        public Feria? ObtenerFeria()
+            => _marketRepo.GetById(_usuario.MarketId);
 
-        // === Agregar producto ===
-        public void AgregarAlCarrito(Producto p)
+        public List<Producto> ObtenerProductos()
+            => _availabilityRepo.GetByMarket(_usuario.MarketId);
+
+        public List<Producto> ObtenerCarrito()
+            => _carrito;
+
+        public void Agregar(Producto p)
         {
-            var item = _carrito.FirstOrDefault(x => x.ProductCatalogId == p.ProductCatalogId);
-            if (item == null)
+            if (p.Stock > 0)
                 _carrito.Add(p);
         }
 
-        // === Quitar producto ===
-        public void QuitarDelCarrito(string productCatalogId)
+        public void Quitar(Producto p)
         {
-            _carrito.RemoveAll(x => x.ProductCatalogId == productCatalogId);
+            _carrito.Remove(p);
         }
 
-        // === Calcular total ===
-        public decimal CalcularTotal() => _carrito.Sum(x => x.Precio);
-
-        // === Guardar compra ===
-        public void FinalizarCompra(Usuario usuario)
+        // ==========================================
+        // FINALIZAR COMPRA
+        // ==========================================
+        public bool FinalizarCompra()
         {
-            _repo.RegistrarCompra(usuario, _carrito);
+            if (_carrito.Count == 0)
+                return false;
+
+            string folder = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "DataFiles", "Commerce");
+
+            Directory.CreateDirectory(folder);
+
+            string file = Path.Combine(folder, "compras.csv");
+
+            decimal total = _carrito.Sum(p => p.Precio);
+
+            string linea =
+                $"{_usuario.UserId},{_usuario.Nombre},{total},{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
+
+            File.AppendAllText(file, linea + Environment.NewLine);
+
             _carrito.Clear();
+            return true;
         }
     }
 }

@@ -1,18 +1,23 @@
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\People\users.csv
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.deps.json
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.dll
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Domain.dll
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Shared.dll
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Domain.pdb
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Shared.pdb
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.csproj.AssemblyReference.cache
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.AssemblyInfoInputs.cache
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.AssemblyInfo.cs
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.csproj.CoreCompileInputs.cache
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\Mercadit.E260211C.Up2Date
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.dll
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\refint\MercaditoMovil.Infrastructure.dll
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
-D:\escritorio\Tecnicas de Programacion\MercaditoMovil-Story-1.1.2-Authentication-and-Role-Access\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\ref\MercaditoMovil.Infrastructure.dll
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\People\users.csv
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Catalogs\product_catalog.csv
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Commerce\producer_products.csv
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Markets\markets.csv
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\DataFiles\Producers\producers.csv
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.deps.json
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.dll
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Domain.dll
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Shared.dll
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Domain.pdb
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\bin\Debug\net9.0\MercaditoMovil.Shared.pdb
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.AssemblyInfo.cs
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.sourcelink.json
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\Mercadit.E260211C.Up2Date
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.dll
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\refint\MercaditoMovil.Infrastructure.dll
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\MercaditoMovil.Infrastructure.pdb
+C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\obj\Debug\net9.0\ref\MercaditoMovil.Infrastructure.dll

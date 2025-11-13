@@ -30,4 +30,19 @@
     <ProjectReference Include="..\MercaditoMovil.Shared\MercaditoMovil.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DataFiles\Catalogs\product_catalog.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataFiles\Commerce\producer_products.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataFiles\Markets\markets.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataFiles\Producers\producers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

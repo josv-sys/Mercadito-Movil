@@ -21,12 +21,14 @@
             this.LblTitulo.Location = new System.Drawing.Point(140, 70);
             this.LblTitulo.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
             this.LblTitulo.AutoSize = true;
+            this.LblTitulo.ForeColor = System.Drawing.Color.FromArgb(33, 150, 243);
             // 
             // TxtCorreo
             // 
             this.TxtCorreo.Hint = "Correo electrónico";
             this.TxtCorreo.Location = new System.Drawing.Point(90, 130);
             this.TxtCorreo.Size = new System.Drawing.Size(300, 50);
+            this.TxtCorreo.BackColor = System.Drawing.Color.Black;
             // 
             // TxtContrasena
             // 
