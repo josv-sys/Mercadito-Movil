@@ -1,54 +1,47 @@
-﻿using MercaditoMovil.Application.Service;
-using MercaditoMovil.Domain.Entities.User; // <-- Change this to import the 'User' type directly
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Windows.Forms;
+using MercaditoMovil.Application.Services;
+using MercaditoMovil.Domain.Entities;
 
-namespace MercaditoMovil.Views.Winforms.Controllers
+namespace MercaditoMovil.Views.WinForms.Controllers
 {
-    /// <summary>
-    /// bridge between forms and AuthService.
-    /// </summary>
     public class LoginController
     {
-        private readonly AuthService _auth;
+        private readonly AuthService _authService;
 
-        public LoginController(AuthService auth)
+        public LoginController()
         {
-            _auth = auth;
+            _authService = new AuthService();
         }
 
-        public User Login(string username, string password, out List<string> errors)
+        /// <summary>
+        /// Valida las credenciales del usuario contra users.csv
+        /// </summary>
+        public Usuario? IniciarSesion(string correo, string contrasena)
         {
-            errors = new List<string>();
-            var user = _auth.Login(username, password);
-            // aqui podriamos agregar mensajes de error mas detallados si se quiere luego pero por ahora dejamos asi
-            return user;
-        }
+            try
+            {
+                var usuario = _authService.IniciarSesion(correo, contrasena);
 
-        public User RegisterBasic(
-            string username,
-            string password,
-            string firstName,
-            string lastName1,
-            string lastName2,
-            string nationalId,
-            string email,
-            string phone,
-            string province,
-            string canton,
-            string district,
-            string exactAddress,
-            string marketId,
-            out List<string> errors)
-        {
-            return _auth.RegisterBasic(
-                username, password, firstName, lastName1, lastName2,
-                nationalId, email, phone, province, canton, district,
-                exactAddress, marketId, out errors);
+                if (usuario == null)
+                {
+                    MessageBox.Show("Correo o contraseña incorrectos.",
+                        "Error de autenticación",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return null;
+                }
+
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al iniciar sesión: {ex.Message}",
+                    "Error interno",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
         }
     }
 }
-

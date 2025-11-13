@@ -1,70 +1,83 @@
-﻿using MercaditoMovil.Application.Features.UserManagement;
-using MercaditoMovil.Application.Validators;
+﻿using System;
+using System.IO;
+using Microsoft.VisualBasic.FileIO;
 using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Domain.Interfaces;
 
-namespace MercaditoMovil.Application.Service
+namespace MercaditoMovil.Application.Services
 {
-    /// <summary>
-    /// Basic authentication service backed by repository.
-    /// </summary>
-    public sealed class AuthService : IAuthService
+    public class AuthService
     {
-        private readonly IUserRepository _repo;
+        private readonly string _rutaUsuarios;
 
-        /// <summary>
-        /// Builds the service with repository dependency.
-        /// </summary>
-        public AuthService(IUserRepository repo)
+        public AuthService()
         {
-            _repo = repo;
+            _rutaUsuarios =
+                @"C:\Users\Fernando Madriz\Desktop\Story1.2.1–Create-Cart_Structure\MercaditoMovil\MercaditoMovil\MercaditoMovil.Infrastructure\DataFiles\People\users.csv";
         }
 
-        /// <summary>
-        /// Validates credentials and compares password.
-        /// </summary>
-        public bool Login(string username, string password, out string message)
+        public Usuario? IniciarSesion(string correo, string contrasena)
         {
-            if (!UserValidator.ValidateLogin(username, password, out message))
-                return false;
-
-            var user = _repo.GetByUsername(username);
-            if (user is null || user.Password != password)
+            if (!File.Exists(_rutaUsuarios))
             {
-                message = "Usuario o contraseña incorrectos.";
-                return false;
+                // No mostramos MessageBox aquí (capa Application)
+                return null;
             }
 
-            message = "Inicio de sesión exitoso.";
-            return true;
+            using var parser = new TextFieldParser(_rutaUsuarios);
+            parser.SetDelimiters(",");
+            parser.HasFieldsEnclosedInQuotes = true;
+
+            var headers = parser.ReadFields();
+            if (headers == null)
+                return null;
+
+            // Normalizar encabezados
+            for (int i = 0; i < headers.Length; i++)
+                headers[i] = Limpiar(headers[i]);
+
+            // Indices según tu archivo real
+            int iUserId = Array.IndexOf(headers, "UserId");
+            int iEmail = Array.IndexOf(headers, "Email");
+            int iPassword = Array.IndexOf(headers, "Password");
+            int iFirst = Array.IndexOf(headers, "FirstName");
+            int iLast1 = Array.IndexOf(headers, "FirstLastName");
+            int iLast2 = Array.IndexOf(headers, "SecondLastName");
+            int iMarket = Array.IndexOf(headers, "MarketId");
+
+            correo = Limpiar(correo).ToLower();
+            contrasena = Limpiar(contrasena);
+
+            while (!parser.EndOfData)
+            {
+                var campos = parser.ReadFields();
+                if (campos == null)
+                    continue;
+
+                string email = Limpiar(campos[iEmail]).ToLower();
+                string pass = Limpiar(campos[iPassword]);
+
+                if (email == correo && pass == contrasena)
+                {
+                    return new Usuario
+                    {
+                        UserId = Limpiar(campos[iUserId]),
+                        Nombre = $"{Limpiar(campos[iFirst])} {Limpiar(campos[iLast1])} {Limpiar(campos[iLast2])}",
+                        Correo = email,
+                        MarketId = Limpiar(campos[iMarket])
+                    };
+                }
+            }
+
+            return null;
         }
 
-        /// <summary>
-        /// Registers user after checks and duplicates by username.
-        /// </summary>
-        public bool Register(User user, out string message)
+        private string Limpiar(string s)
         {
-            if (!UserValidator.ValidateRegister(user, out message))
-                return false;
-
-            var existing = _repo.GetByUsername(user.Username);
-            if (existing != null)
-            {
-                message = "El nombre de usuario ya existe.";
-                return false;
-            }
-
-            if (!_repo.Add(user, out var repoError))
-            {
-                message = repoError;
-                return false;
-            }
-
-            message = user.MarketId == "MKT-000"
-                ? "Usuario registrado correctamente. Por ahora no hay una feria cercana a tu ubicación; seguimos trabajando para cubrir todo CR."
-                : "Usuario registrado correctamente.";
-            return true;
+            if (s == null) return "";
+            return s.Replace("\"", "")
+                    .Replace("\r", "")
+                    .Replace("\n", "")
+                    .Trim();
         }
     }
 }
-

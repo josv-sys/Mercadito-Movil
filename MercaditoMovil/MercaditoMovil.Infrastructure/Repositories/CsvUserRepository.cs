@@ -1,155 +1,158 @@
-﻿using System;
+﻿using MercaditoMovil.Domain.Entities;
+using MercaditoMovil.Domain.Entities.User;
+using MercaditoMovil.Domain.Interfaces.IUserRepository;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Microsoft.VisualBasic.FileIO; // TextFieldParser
-using MercaditoMovil.Domain.Entities;
-using MercaditoMovil.Domain.Interfaces;
 
 namespace MercaditoMovil.Infrastructure.Repositories
 {
     /// <summary>
-    /// CSV repository using TextFieldParser and quoted fields.
+    /// CSV-based implementation of <c>IUserRepository</c>.
+    /// Quoted fields are supported for commas inside addresses.
     /// </summary>
-    public sealed class CsvUserRepository : IUserRepository
+    public class CsvUserRepository(string filePath) : IUserRepository
     {
-        private readonly string _csvPath;
+        private readonly string _filePath = filePath;
 
-        private const string Header =
-            "UserId,Username,Password,FirstName,LastName1,LastName2,NationalId,Email,Phone,ExactAddress,Province,Canton,District,MarketId";
-
-        /// <summary>
-        /// Builds repository with CSV path.
-        /// </summary>
-        public CsvUserRepository(string csvPath)
+        /// <inheritdoc/>
+        public List<User> LoadAll()
         {
-            _csvPath = csvPath ?? throw new ArgumentNullException(nameof(csvPath));
+            var list = new List<User>();
+
+            if (!File.Exists(_filePath))
+                return list;
+
+            var lines = File.ReadAllLines(_filePath, Encoding.UTF8);
+            for (int i = 1; i < lines.Length; i++) // esto lo uso por ahora para quitar la primera linea, preguntar al profe
+            {
+                var line = lines[i];
+                if (line != null && line.Length > 0)
+                {
+                    var parts = SplitCsv(line);
+                    if (parts.Length >= 14)
+                    {
+                        var u = new User( //esto es para que calze con el constructor, preguntar si se puede hacer mejor
+                            parts[0], parts[1], parts[2], parts[3],
+                            parts[4], parts[5], parts[6], parts[7],
+                            parts[8], parts[9], parts[10], parts[11],
+                            parts[12], parts[13]);
+                        list.Add(u);
+                    }
+                }
+            }
+            return list;
         }
 
-        /// <summary>
-        /// Sequential scan by username.
-        /// </summary>
-        public User? GetByUsername(string username)
+        /// <inheritdoc/>
+        public User FindByUsername(string username)
         {
-            if (!File.Exists(_csvPath)) return null;
+            if (username == null) return null;
+            username = username.Trim();
+            var all = LoadAll();
 
-            using var parser = new TextFieldParser(_csvPath, Encoding.UTF8);
-            parser.TextFieldType = FieldType.Delimited;
-            parser.SetDelimiters(",");
-            parser.HasFieldsEnclosedInQuotes = true;
-
-            // Skip header
-            if (!parser.EndOfData) _ = parser.ReadLine();
-
-            while (!parser.EndOfData)
+            int i = 0;
+            while (i < all.Count)
             {
-                string[]? fields;
-                try { fields = parser.ReadFields(); }
-                catch { continue; }
-
-                if (fields is null || fields.Length < 14) continue;
-
-                var u = new User(
-                    fields[0], fields[1], fields[2], fields[3], fields[4], fields[5],
-                    fields[6], fields[7], fields[8], fields[9], fields[10], fields[11], fields[12], fields[13]);
-
+                var u = all[i];
                 if (string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase))
                     return u;
+                i++;
             }
-
             return null;
         }
 
-        /// <summary>
-        /// Appends user row creating file and header when needed.
-        /// </summary>
-        public bool Add(User user, out string error)
+        /// <inheritdoc/>
+        public bool UsernameExists(string username)
         {
-            try
-            {
-                EnsureFile();
+            return FindByUsername(username) != null;
+        }
 
-                using var stream = new FileStream(_csvPath, FileMode.Append, FileAccess.Write, FileShare.Read);
-                using var writer = new StreamWriter(stream, new UTF8Encoding(false));
+        /// <inheritdoc/>
+        public bool NationalIdExists(string nationalId)
+        {
+            if (nationalId == null) return false;
+            nationalId = nationalId.Trim();
+            var all = LoadAll();
 
-                var line = string.Join(",",
-                    Q(user.UserId),
-                    Q(user.Username),
-                    Q(user.Password),
-                    Q(user.FirstName),
-                    Q(user.LastName1),
-                    Q(user.LastName2),
-                    Q(user.NationalId),
-                    Q(user.Email),
-                    Q(user.Phone),
-                    Q(user.ExactAddress),
-                    Q(user.Province),
-                    Q(user.Canton),
-                    Q(user.District),
-                    Q(user.MarketId));
+            int i = 0;
+            while (i < all.Count)
+            {
+                if (string.Equals(all[i].NationalId, nationalId, StringComparison.OrdinalIgnoreCase))
+                    return true;
+                i++;
+            }
+            return false;
+        }
 
-                writer.WriteLine(line);
-                error = string.Empty;
-                return true;
-            }
-            catch (IOException ioEx)
+        /// <inheritdoc/>
+        public User Add(User user)
+        {
+            // esto asume que el archivo ya existe y tiene la cabecera, luis deberia ver si lo dejamos asi o le agregamos codigo para crear el archivo con la cabecera si no existe
+            var cols = new[]
             {
-                error = $"Error de E/S al escribir usuarios: {ioEx.Message}";
-                return false;
-            }
-            catch (UnauthorizedAccessException uaEx)
+                user.UserId, user.Username, user.Password, user.FirstName,
+                user.LastName1, user.LastName2, user.NationalId, user.Email,
+                user.Phone, user.Province, user.Canton, user.District,
+                user.ExactAddress, user.MarketId
+            };
+
+            for (int i = 0; i < cols.Length; i++)
             {
-                error = $"Permisos insuficientes para acceder a usuarios: {uaEx.Message}";
-                return false;
+                cols[i] = EscapeCsv(cols[i]);
             }
-            catch (Exception ex)
-            {
-                error = $"Error inesperado al registrar usuario: {ex.Message}";
-                return false;
-            }
+
+            string line = string.Join(",", cols);
+            File.AppendAllText(_filePath, Environment.NewLine + line, Encoding.UTF8);
+            return user;
         }
 
         /// <summary>
-        /// Ensures CSV directory and header exist.
+        /// Splits a CSV line honoring quotes for commas inside fields.
         /// </summary>
-        private void EnsureFile()
+        private static string[] SplitCsv(string line)
         {
-            var dir = Path.GetDirectoryName(_csvPath);
-            if (!string.IsNullOrWhiteSpace(dir) && !Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
+            var result = new List<string>();
+            var sb = new StringBuilder();
+            bool inQuotes = false;
+            int i = 0;
 
-            if (!File.Exists(_csvPath))
+            while (i < line.Length)
             {
-                using var s = new FileStream(_csvPath, FileMode.CreateNew, FileAccess.Write, FileShare.Read);
-                using var w = new StreamWriter(s, new UTF8Encoding(false));
-                w.WriteLine(Header);
-                return;
+                char c = line[i];
+                if (c == '\"')
+                {
+                    inQuotes = !inQuotes;
+                }
+                else if (c == ',' && !inQuotes) // se supone que esto deberia funcionar bien aun si hay comas dentro de las comillas, preguntar al profe
+                {
+                    result.Add(sb.ToString());
+                    sb.Clear();
+                }
+                else
+                {
+                    sb.Append(c);
+                }
+                i++;
             }
 
-            using var fs = new FileStream(_csvPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            using var r = new StreamReader(fs, Encoding.UTF8, true);
-            var first = r.ReadLine();
-            if (string.Equals(first, Header, StringComparison.Ordinal)) return;
-
-            var temp = _csvPath + ".tmp";
-            using (var w = new StreamWriter(temp, false, new UTF8Encoding(false)))
-            {
-                w.WriteLine(Header);
-                if (first is not null) w.WriteLine(first);
-                while (!r.EndOfStream) w.WriteLine(r.ReadLine());
-            }
-            r.Dispose(); fs.Dispose();
-            File.Copy(temp, _csvPath, true);
-            File.Delete(temp);
+            result.Add(sb.ToString());
+            return result.ToArray();
         }
 
         /// <summary>
-        /// Quotes and escapes CSV field.
+        /// Escapes a CSV field by surrounding with quotes if needed.
         /// </summary>
-        private static string Q(string value)
+        private static string EscapeCsv(string value)
         {
-            value ??= string.Empty;
-            var escaped = value.Replace("\"", "\"\"");
-            return $"\"{escaped}\"";
+            if (value == null) value = "";
+            if (value.Contains(',') || value.Contains('\"'))
+            {
+                value = value.Replace("\"", "");
+                return "\"" + value + "\"";
+            }
+            return value;
         }
     }
 }
